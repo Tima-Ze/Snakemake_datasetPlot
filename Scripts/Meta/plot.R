@@ -50,4 +50,25 @@ ggplot(df, aes(x=data, y=n, fill=Sex))+
   ylim(0,30)
 
   
-ggsave("plot/Sex_barplot.jpg",  plot = last_plot(),  width = 1500, height = 1000)
+ggsave("plot/Sex_barplot.jpg",  plot = last_plot(), width = 30, height = 20, units = "cm")
+
+##Age distribution, Box plot
+
+theme_set(theme_bw(base_size = 16))
+
+ggplot(df, aes(data, Age, fill=data)) +
+  geom_boxplot(alpha=0.7) +
+  stat_summary(fun.y=mean, geom="point", shape=20, size=5, color="red", fill="red") +
+  theme(legend.position="none") +
+  scale_fill_manual(values = c("antiquewhite3", "antiquewhite4", "#56B4E9","deepskyblue4","darkorchid4", "darkslateblue",
+                               "#C3D7A4", "#52854C","#FFDB6D", "#C4961A", "#999999", "#999988"))+
+  theme_bw()+ theme(
+    axis.title.x = element_text(size = 16),
+    axis.text.x = element_text(size = 16, angle = 60, hjust = 1),
+    axis.title.y = element_text(size = 16),
+    axis.text = element_text(size = 15),
+    legend.text = element_text(size = 15),)+
+  ylim(40,100)+
+  facet_grid(.~ Group, switch = "both", scales = 'free')
+ggsave("plot/Age_barplot.jpg",  plot = last_plot(),  width = 30, height = 20, units = "cm")
+
