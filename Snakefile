@@ -1,4 +1,4 @@
-rule plot:
+rule plot_meta:
 	input:
 		"Metadata/{}.csv"
 	output:
