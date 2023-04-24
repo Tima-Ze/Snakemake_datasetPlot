@@ -10,3 +10,4 @@ rule plot_meta:
         	"R" 
 	Script:
 		"Scripts/Meta/plot.R"
+rule plot_PCA:
