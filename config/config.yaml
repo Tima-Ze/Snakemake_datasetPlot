@@ -1,17 +1,11 @@
 Samples:
-    - AD_mayo_TCX
-    - control_mayo_TCX
-    - AD_mayo_CER
-    - control_mayo_CER
-    - AD_msbbBM22
-    - control_msbbBM22
-    - AD_msbbBM44
-    - control_msbbBM44
-    - AD_msbbBM10
-    - control_msbbBM10
-    - AD_msbbBM36
-    - control_msbbBM36
+    - mayo_TCX
+    - mayo_CER
+    - msbbBM22
+    - msbbBM44
+    - msbbBM10
+    - msbbBM36
 Annotation: Data/Refs/gencode.v33.chr_patch_hapl_scaff.annotation.gtf.gz
 Conditions:
     - AD
-    - Ctrl
+    - control
