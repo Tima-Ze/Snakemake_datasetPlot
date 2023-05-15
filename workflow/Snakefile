@@ -1,6 +1,9 @@
 configfile: "config/config.yaml"
 rule polish&select
-	input":featurecount=expand("counts/featurecount/raw_featurecount/{id}.txt",id=config["Samples"])
+	input:
+		featurecount=expand("counts/featurecount/raw_featurecount/{id}.txt", id=config["feaaturecounts"]),
+		meta=expand("Metadata/{MetaDdata}.csv", MetaData=config["MetaData"])
+	
 rule plot:
 	input:
 		"Metadata/{}.csv"
