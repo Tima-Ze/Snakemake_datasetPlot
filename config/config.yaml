@@ -1,4 +1,18 @@
-Samples:
+featurecounts:
     - mayo_CER
     - mayo_TCX
     - msbb
+    
+ MetaData:
+    - AD_mayo_CER
+    - AD_mayo_TCX
+    - AD_msbbBM10
+    - AD_msbbBM22
+    - AD_msbbBM36
+    - AD_msbbBM44
+    - control_mayo_CER
+    - control_mayo_TCX
+    - control_msbbBM10
+    - control_msbbBM22
+    - control_msbbBM36
+    - control_msbbBM44
