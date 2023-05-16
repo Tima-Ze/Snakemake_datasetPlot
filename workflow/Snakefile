@@ -1,16 +1,15 @@
 configfile: "config/config.yaml"
 rule polish&select
 	input:
-		featurecount="counts/featurecount/raw_featurecount/{featurecounts}.txt",
-		meta="Metadata/{MetaDdata}.csv"
+		featurecount="counts/featurecount/raw_featurecount/{datasets}/{rawCounts}.txt",
+		meta="Metadata/{wildcards.datasets}/{MetaDdata}.csv"
 	output:
+		"counts/featurecount/selected_featurecounts/{wildcards.datasets}/{rawCounts}_raw.txt"
 		
 	params:
 		CON=config["Condition"]
 	shell:
-        r"""
-        /path/to/my-script.R --Con {params.CON}
-        """
+        
 	
 rule plot:
 	input:
