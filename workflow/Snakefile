@@ -5,10 +5,8 @@ rule polish&select
 		meta="Metadata/{wildcards.datasets}/{MetaDdata}.csv"
 	output:
 		"counts/featurecount/selected_featurecounts/{wildcards.datasets}/{rawCounts}_raw.txt"
-		
-	params:
-		CON=config["Condition"]
-	shell:
+	Script:
+		"Scripts/polish&select.R"
         
 	
 rule plot:
