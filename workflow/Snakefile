@@ -1,5 +1,5 @@
 configfile: "config/config.yaml"
-rule polish&select
+rule polish_select:
 	input:
 		featurecount="counts/featurecount/raw_featurecount/{datasets}/{rawCounts}.txt",
 		meta="Metadata/{wildcards.datasets}/{MetaDdata}.csv"
@@ -8,7 +8,19 @@ rule polish&select
 	Script:
 		"Scripts/polish&select.R"
         
-	
+rule Normalization_filter:
+	input:
+		counts=rules.polish_select.output
+		meta="Metadata/{wildcards.datasets}/{MetaDdata}.csv"
+		gtf="gtf/{}.gtf.gz"
+	params:
+		norm=config["Norm_method"]
+	output:
+		"counts/normalized/{params.norm}/{wildcards.datasets}/{rawCounts}_{params.norm}.txt"
+	Script:
+		"Scripts/norm_filter.R"
+		
+		
 rule plot:
 	input:
 		"Metadata/{}.csv"
