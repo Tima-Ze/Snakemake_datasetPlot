@@ -2,8 +2,7 @@ Norm_method:
     - Deseq2_norm
 #    - TMM_norm
  #   - TPM_norm
- Condition:
-    - AD
-    - control
+PCA_color:
+    - condition
 
 
