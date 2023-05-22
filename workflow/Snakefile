@@ -21,9 +21,17 @@ rule Normalization_filter:
 		"Scripts/norm_filter.R"
 		
 		
-rule plot:
+rule plots:
 	input:
-		"Metadata/{}.csv"
+		data="rules.Normalization_filter.output"
+		raw="rules.polish_select.output"
+		meta="rules.polish_select.input.meta"
 	output:
+		boxplot="plots/{params.norm}/boxplots/{wildcards.datasets}_countDist.jpeg"
+		LibSize="plots/{params.norm}/LibSize/{wildcards.datasets}_LibSize.jpeg"
+		PCA="plots/{params.norm}/LibSize/{wildcards.datasets}_PCA.jpeg"
+	params:
+		norm=config["Norm_method"]
+		PCA_color=config["PCA_color"]
 	Script:
-		"Scripts/Meta/plot.R"
+		"Scripts/All_plots.R"
