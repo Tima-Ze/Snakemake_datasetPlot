@@ -1,7 +1,10 @@
 configfile: "config/config.yaml"
+rule all:
+	input:
+		select_data:"rules.polish_select.output"
 rule polish_select:
 	input:
-		featurecount="counts/featurecount/raw_featurecount/{datasets}/{rawCounts}.txt",
+		featurecount="counts/featurecount/raw_featurecount/{datasets}/{rawCounts}.txt"
 		meta="Metadata/{wildcards.datasets}/{MetaDdata}.csv"
 	output:
 		"counts/featurecount/selected_featurecounts/{wildcards.datasets}/{rawCounts}_raw.txt"
