@@ -1,7 +1,9 @@
 configfile: "config/config.yaml"
 rule all:
 	input:
-		select_data:"rules.polish_select.output"
+		select_data:"rules.polish_select.output",
+		Norm_data:"rules.Normalization_filter.output"
+		plot_done:"rules.plots.output.PCA"
 rule polish_select:
 	input:
 		featurecount="counts/featurecount/raw_featurecount/{datasets}/{rawCounts}.txt"
